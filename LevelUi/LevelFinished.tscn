@@ -1,0 +1,22 @@
+[gd_scene format=2]
+
+[node name="LevelFinished" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ColorRect" type="ColorRect" parent="."]
+margin_left = 289.0
+margin_top = 28.0
+margin_right = 811.0
+margin_bottom = 550.0
+color = Color( 0.384314, 0.384314, 0.384314, 1 )
+
+[node name="Label" type="Label" parent="."]
+margin_left = 498.0
+margin_top = 112.0
+margin_right = 621.0
+margin_bottom = 126.0
+text = "Work Shift Finished"

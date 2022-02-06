@@ -1,0 +1,74 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://LevelUi/LevelUi.gd" type="Script" id=1]
+
+[node name="LevelUi" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="delivered" type="Label" parent="."]
+margin_left = 422.0
+margin_top = 2.0
+margin_right = 482.0
+margin_bottom = 23.0
+text = "delivered"
+align = 2
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="remaining" type="Label" parent="."]
+margin_left = 415.0
+margin_top = 21.0
+margin_right = 482.0
+margin_bottom = 42.0
+text = "Queue"
+align = 2
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="lost" type="Label" parent="."]
+margin_left = 415.0
+margin_top = 38.0
+margin_right = 482.0
+margin_bottom = 59.0
+text = "Lost"
+align = 2
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="vDelivered" type="Label" parent="."]
+margin_left = 490.0
+margin_top = 2.0
+margin_right = 556.0
+margin_bottom = 23.0
+text = "--"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="vRemaining" type="Label" parent="."]
+margin_left = 489.0
+margin_top = 21.0
+margin_right = 556.0
+margin_bottom = 42.0
+text = "--"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="vLost" type="Label" parent="."]
+margin_left = 489.0
+margin_top = 38.0
+margin_right = 556.0
+margin_bottom = 59.0
+text = "--"
+__meta__ = {
+"_edit_use_anchors_": false
+}
