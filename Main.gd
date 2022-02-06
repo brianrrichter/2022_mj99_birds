@@ -10,7 +10,12 @@ const level_finished_scn = preload("res://LevelUi/LevelFinished.tscn")
 # var mail_pool = [] #mail_box_id, mail_type
 export(Array, Array, int) var mail_pool = [[0, 0]]
 
+export(String) var next_scene
+
+var pool_original_size = 0
+
 onready var mail_timer = $MailTimer
+onready var level_timer = $LevelTimer
 onready var mail_conteiner = $MailYSort
 onready var player = $Player
 onready var spy_conteiner = $SpyConteiner
@@ -22,8 +27,13 @@ onready var levelUi = $LevelUi
 func _ready():
 	$AnimationPlayer.play("speaking")
 	mail_timer.connect("timeout", self, "_on_mail_timeout")
+	level_timer.connect("timeout", self, "_on_level_timer_timeout")
+	
+	level_timer.one_shot = true
 
 	mail_timer.start()
+	level_timer.start()
+
 
 	player.connect("stop_moving", self, "_on_player_stop_moving")
 
@@ -32,7 +42,10 @@ func _ready():
 	# mail_pool.append([0,2])
 	# mail_pool.append([1,0])
 	
+	pool_original_size = mail_pool.size()
+	
 	levelUi.remaining = mail_pool.size()
+	
 
 	pass # Replace with function body.
 
@@ -85,9 +98,33 @@ func _on_player_stop_moving():
 
 func levelFinished():
 	var inst = level_finished_scn.instance()
+	var delivered = levelUi.delivered
+#	inst.start(pool_original_size, delivered)
+
+	inst.connect("next_scene_clicked", self, "go_next_level")
+	inst.connect("play_again_clicked", self, "play_again")
+
 	add_child(inst)
+	inst.total = pool_original_size
+	inst.delivered = delivered
+	inst.has_next_level = next_scene != null and !next_scene.empty()
 	pass;
 
+func go_next_level():
+	if next_scene != null and !next_scene.empty():
+		var _r = get_tree().change_scene(next_scene)
+
+
+func play_again():
+	var _r = get_tree().reload_current_scene()
+
+func _on_level_timer_timeout():
+	levelFinished()
+
+
+
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-#func _process(delta):
-#	pass
+func _process(_delta):
+	levelUi.time_left = level_timer.time_left
+	pass
+

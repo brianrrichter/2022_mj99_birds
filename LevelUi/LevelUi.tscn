@@ -72,3 +72,24 @@ text = "--"
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
+[node name="timeLeft" type="Label" parent="."]
+margin_left = 415.0
+margin_top = 54.0
+margin_right = 482.0
+margin_bottom = 75.0
+text = "Time Left"
+align = 2
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="vTimeLeft" type="Label" parent="."]
+margin_left = 489.0
+margin_top = 54.0
+margin_right = 556.0
+margin_bottom = 75.0
+text = "--"
+__meta__ = {
+"_edit_use_anchors_": false
+}

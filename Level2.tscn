@@ -101,7 +101,6 @@ points = PoolVector2Array( 0, 0, 64, 0, 64, 64, 0, 64 )
 [node name="Main" type="Node2D"]
 script = ExtResource( 3 )
 mail_pool = [ [ 0, 0 ], [ 1, 1 ] ]
-next_scene = "res://Level2.tscn"
 
 [node name="Bird01" type="Sprite" parent="."]
 position = Vector2( 532, 185 )
@@ -155,7 +154,7 @@ wait_time = 5.0
 wait_time = 30.0
 
 [node name="ThunderCloud" parent="." instance=ExtResource( 9 )]
-position = Vector2( 241, 73 )
+position = Vector2( 190, 359 )
 
 [node name="MountainYSort" type="YSort" parent="."]
 
