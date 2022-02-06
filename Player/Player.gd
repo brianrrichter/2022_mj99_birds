@@ -82,3 +82,6 @@ func _on_area_entered(area):
 	if area.is_in_group("obstacle"):
 		if !carried_mail.empty():
 			carried_mail.pop_front()
+	if area.is_in_group("shot"):
+		if !carried_mail.empty():
+			carried_mail.pop_front()

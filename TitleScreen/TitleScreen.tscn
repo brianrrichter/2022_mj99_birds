@@ -1,6 +1,26 @@
-[gd_scene load_steps=2 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://TitleScreen/TitleScreen.gd" type="Script" id=1]
+[ext_resource path="res://Assets/bird01.png" type="Texture" id=2]
+[ext_resource path="res://Assets/bird_player.png" type="Texture" id=3]
+
+[sub_resource type="AtlasTexture" id=1]
+flags = 4
+atlas = ExtResource( 3 )
+region = Rect2( 0, 0, 64, 64 )
+
+[sub_resource type="AtlasTexture" id=2]
+flags = 4
+atlas = ExtResource( 3 )
+region = Rect2( 64, 0, 64, 64 )
+
+[sub_resource type="SpriteFrames" id=3]
+animations = [ {
+"frames": [ SubResource( 1 ), SubResource( 2 ) ],
+"loop": true,
+"name": "default",
+"speed": 5.0
+} ]
 
 [node name="TitleScreen" type="Node2D"]
 script = ExtResource( 1 )
@@ -11,6 +31,50 @@ margin_top = 451.0
 margin_right = 539.0
 margin_bottom = 471.0
 text = "Play"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Bird01" type="Sprite" parent="."]
+position = Vector2( 109, 291 )
+scale = Vector2( 3, 3 )
+texture = ExtResource( 2 )
+hframes = 2
+
+[node name="Label" type="Label" parent="."]
+margin_left = 212.0
+margin_top = 232.0
+margin_right = 394.0
+margin_bottom = 263.0
+text = "Deliver the correspondence,
+Go MIGHTY Pidgeon!!"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="."]
+position = Vector2( 424, 385 )
+rotation = -1.5708
+frames = SubResource( 3 )
+playing = true
+
+[node name="Label2" type="Label" parent="."]
+margin_left = 356.0
+margin_top = 351.0
+margin_right = 409.0
+margin_bottom = 365.0
+text = "YES SIR!!"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label3" type="Label" parent="."]
+margin_left = 699.0
+margin_top = 299.0
+margin_right = 997.0
+margin_bottom = 367.0
+text = "MOVE: WASD and Arrows
+If overloaded, drop letter with 'SPACE'"
 __meta__ = {
 "_edit_use_anchors_": false
 }

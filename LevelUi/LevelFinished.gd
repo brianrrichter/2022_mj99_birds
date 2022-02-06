@@ -20,7 +20,8 @@ func _ready():
 	var _r = $nextLevelButton.connect("pressed", self, "_on_next_scene_clicked")
 	_r = $playAgainButton.connect("pressed", self, "_on_play_again_pressed")
 	_r = $titleScreenButton.connect("pressed", self, "_on_title_button_pressed")
-	pass # Replace with function body.
+	
+	$ThanksLabel.hide()
 
 func set_total(v):
 	total = v
@@ -35,6 +36,7 @@ func set_has_next_level(v):
 	
 	if !v:
 		$nextLevelButton.hide()
+		$ThanksLabel.show()
 	
 	
 	
